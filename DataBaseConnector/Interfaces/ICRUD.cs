@@ -10,6 +10,6 @@ namespace DataBaseConnector.Interfaces
         public IEnumerable<T> GetAll();
         public int Insert(T item);
         public int Update(T item);
-        public int Delete(int Id);
+        public int Delete(object Id);
     }
 }

@@ -14,13 +14,17 @@ namespace DataBaseConnector.Implementation
         {
             _connectionString = connectionString;
         }
-        public int Delete(int Id)
+        public int Delete(object Id)
         {
+            var id = Id as int?;
+            if (id == null)
+                throw new Exception("Wrong type");
+
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand("DELETE FROM Products WHERE Id =@id");
-                SqlParameter parameter = new SqlParameter("@id", Id);
+                SqlParameter parameter = new SqlParameter("@id", id);
                 command.Parameters.Add(parameter);
                 var res = command.ExecuteNonQuery();
                 return res;
@@ -56,16 +60,19 @@ namespace DataBaseConnector.Implementation
             }
         }
 
-        public Product GetById(int Id)
+        public Product GetById(object Id)
         {
             Product result = null;
+            var id = Id as int?;
+            if (id == null)
+                throw new Exception("Wrong type");
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(@"SELECT * 
                                         FROM Products p JOIN Categories ct ON p.CategoryId = ct.Id 
                                         JOIN Colors cr ON p.ColorId = cr.Id Products WHERE Id =@id;");
-                command.Parameters.AddWithValue("@id", Id);
+                command.Parameters.AddWithValue("@id", id);
                 var res = command.ExecuteReader();
                 if (res.FieldCount > 1)
                     throw new Exception("Invalid Model");

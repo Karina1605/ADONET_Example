@@ -14,13 +14,17 @@ namespace DataBaseConnector.Implementation
         {
             _connectionString = connectionString;
         }
-        public int Delete(int Id)
+        public int Delete(object Id)
         {
+            var id = Id as int?;
+            if (id == null)
+                throw new Exception("Wrong type");
+
             using (SqlConnection connection =new SqlConnection(_connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand("DELETE FROM Categories WHERE Id =@id");
-                SqlParameter parameter = new SqlParameter("@id", Id);
+                SqlParameter parameter = new SqlParameter("@id", id);
                 command.Parameters.Add(parameter);
                 var res = command.ExecuteNonQuery();
                 return res;

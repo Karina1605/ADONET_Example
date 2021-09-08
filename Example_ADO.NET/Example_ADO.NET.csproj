@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\DataBaseConnector\DataBaseConnector.csproj" />
+    <ProjectReference Include="..\DataBaseModels\DataBaseModels.csproj" />
   </ItemGroup>
 
 
