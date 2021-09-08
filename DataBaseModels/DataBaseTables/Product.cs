@@ -11,11 +11,13 @@ namespace DataBaseModels.DataBaseTables
         [Key]
         public int Id { get; set; }
         [Required]
+        public string Name { get; set; }
+        [Required]
         public float Cost { get; set; }
         [Required]
         public int Count { get; set; }
-        public int CategoryId { get; set; }
-        public int ColorId { get; set; }
+        public Category Category { get; set; }
+        public Color Color { get; set; }
         public string PhotoPath { get; set; }
     }
 }
