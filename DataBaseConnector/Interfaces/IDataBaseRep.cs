@@ -5,7 +5,7 @@ using DataBaseModels.DataBaseTables;
 
 namespace DataBaseConnector.Interfaces
 {
-    interface IDataBaseRep
+    public interface IDataBaseRep
     {
         ICRUD<Category> Categories { get; }
         ICRUD<Color> Colors { get; }

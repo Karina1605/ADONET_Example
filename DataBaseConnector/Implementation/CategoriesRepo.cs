@@ -7,10 +7,10 @@ using System.Text;
 
 namespace DataBaseConnector.Implementation
 {
-    class CategoryRepo : ICRUD<Category>
+    class CategoriesRepo : ICRUD<Category>
     {
         private readonly string _connectionString;
-        public CategoryRepo(string connectionString)
+        public CategoriesRepo(string connectionString)
         {
             _connectionString = connectionString;
         }
