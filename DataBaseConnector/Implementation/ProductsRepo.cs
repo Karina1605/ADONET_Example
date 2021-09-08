@@ -14,7 +14,7 @@ namespace DataBaseConnector.Implementation
         {
             _connectionString = connectionString;
         }
-        public int delete(int Id)
+        public int Delete(int Id)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {

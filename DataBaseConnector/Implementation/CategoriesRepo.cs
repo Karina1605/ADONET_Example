@@ -14,7 +14,7 @@ namespace DataBaseConnector.Implementation
         {
             _connectionString = connectionString;
         }
-        public int delete(int Id)
+        public int Delete(int Id)
         {
             using (SqlConnection connection =new SqlConnection(_connectionString))
             {
@@ -49,14 +49,17 @@ namespace DataBaseConnector.Implementation
             }
         }
 
-        public Category GetById(int Id)
+        public Category GetById(object Id)
         {
             Category result = null;
+            var id = Id as int?;
+            if (id == null)
+                throw new Exception("Wrong type");
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand("SELECT * FROM Categories WHERE Id =@id;");
-                command.Parameters.AddWithValue("@id", Id);
+                command.Parameters.AddWithValue("@id", id);
                 var res = command.ExecuteReader();
                 if (res.FieldCount > 1)
                     throw new Exception("Invalid Model");

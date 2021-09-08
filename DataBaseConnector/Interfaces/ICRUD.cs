@@ -6,10 +6,10 @@ namespace DataBaseConnector.Interfaces
 {
     public interface ICRUD<T>
     {
-        public T GetById(int Id);
+        public T GetById(object Id);
         public IEnumerable<T> GetAll();
         public int Insert(T item);
         public int Update(T item);
-        public int delete(int Id);
+        public int Delete(int Id);
     }
 }

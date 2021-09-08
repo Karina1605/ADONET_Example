@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example_ADO.NET", "Example_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBaseModels", "..\DataBaseModels\DataBaseModels.csproj", "{8F9EEB63-30AB-4537-B802-17DCE3B227CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseConnector", "..\DataBaseConnector\DataBaseConnector.csproj", "{357B0287-600B-473C-95DA-3635E1C31707}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBaseConnector", "..\DataBaseConnector\DataBaseConnector.csproj", "{357B0287-600B-473C-95DA-3635E1C31707}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
