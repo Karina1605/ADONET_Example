@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DataBaseModels.DataBaseTables
 {
-    class Product
+    public class Product
     {
         [Key]
         public int Id { get; set; }
